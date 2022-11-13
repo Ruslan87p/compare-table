@@ -1,18 +1,19 @@
-.test
-{
+
+body {
+  background-color: whitesmoke;
+}
+.test {
     margin:10px 0;
     zoom:1;
 }
-.test:after
-{
+.test:after {
     height:0;
     clear:both;
     content:"";
     visibility:hidden;
     display:block;
 }
-.text
-{
+.text {
     width:300px;
     float:left;
     margin-right:10px;
@@ -20,14 +21,12 @@
     padding:10px;
     min-height:80px;
 }
-.text-del
-{
+.text-del {
     text-decoration: line-through;
     color: #A82400;
     background-color: #E5BDB2;
 }
-.text-add
-{
+.text-add {
     background: #D1E1AD;
     color: #405A04;
 }

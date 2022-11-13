@@ -5,6 +5,25 @@
 </div>
 
 
+<ngx-codemirror #codemirror
+  [options]="codeMirrorOptions"
+  [(ngModel)]="query"
+  (ngModelChange)="setEditorContent($event)">
+</ngx-codemirror>
+
+<!-- <textarea codemirrorEditor
+[options]="options"
+[disabled]="readOnly"
+[autoFocus]="true"
+[enableAutoComplete]="true"
+[autoCompleteWords]="['it','works']"
+[usePreviousWords]="true"
+(cursorActivity)="handleChange($event)"
+(focusChange)="handleChange($event)"
+(scroll)="handleChange($event)"
+(drop)="handleChange($event)"
+(changeValue)="handleChange($event)">
+</textarea> -->
 
 
 <div class="container-fluid container-diff">
