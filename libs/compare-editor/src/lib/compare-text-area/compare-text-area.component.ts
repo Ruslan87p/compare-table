@@ -22,24 +22,41 @@ export class CompareTextAreaComponent implements OnInit {
     codeMirrorOptions: any = {
       mode: 'application/xml',
       htmlMode: true,
+
+      lineNumbers: true,
+      styleActiveLine: true,
+      matchBrackets: true,
+      readOnly: 'nocursor',
+
       indentWithTabs: true,
       smartIndent: true,
-      lineNumbers: true,
       lineWrapping: false,
       extraKeys: { 'Ctrl-Space': 'autocomplete' },
       gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
       autoCloseBrackets: true,
-      matchBrackets: true,
+      firstLineNumber: 79,
+      // lineNumberFormatter: this.lineNumberFormatter(79),
       lint: true
     };
 
     query!: string;
 
+    lineNumberFormatter(lineNumber: number) {
+      // const startNumberLine = 50;
+      // const endNumberLine = 0;
+      // for (let index = 0; index < array.length; index++) {
+      //   const element = array[index];
+
+      // }
+    }
 
     public ngOnInit() {
       console.log('HEY')
       this.query = `<TEST>sajdlhfjl</TEST>
-      <div><h1>HELLO</h1></div>`;
+      <div><h1>HELLO</h1></div>
+      onCompare() {
+        this.launchCompareTest(this.text1, this.text2);
+      }`;
       console.log(this.codemirror);
     }
 
