@@ -19,7 +19,10 @@
           "apps/remote-app/src/favicon.ico",
           "apps/remote-app/src/assets"
         ],
-        "styles": ["apps/remote-app/src/styles.scss"],
+        "styles": [
+          "apps/remote-app/src/styles.scss",
+          "./node_modules/bootstrap/dist/css/bootstrap.css"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/remote-app/webpack.config.js"

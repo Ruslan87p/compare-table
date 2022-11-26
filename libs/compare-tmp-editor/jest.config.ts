@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'compare-editor',
+  displayName: 'compare-tmp-editor',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/libs/compare-editor',
+  coverageDirectory: '../../coverage/libs/compare-tmp-editor',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

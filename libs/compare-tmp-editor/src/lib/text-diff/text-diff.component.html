@@ -1,0 +1,18 @@
+  <div class="main-content">
+    <div class="container">
+      <div>
+        <code-compare-table-differences
+          [left]="content.leftContent"
+          [numberLine]="19"
+          [beforeTableLines]="10"
+          [afterTableLines]="10"
+          [right]="content.rightContent"
+          [diffContent]="contentObservable$"
+          [compareRowsStyle]="{'max-height': '800px', 'overflow': 'auto'}"
+          (compareResults)="onCompareResults($event)"
+        >
+        </code-compare-table-differences>
+      </div>
+    </div>
+  </div>
+

@@ -6,6 +6,7 @@
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js",
     "dev": "nx serve host-app --open --skip-nx-cache",
+    "server": "json-server --watch db.json",
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test"
@@ -21,8 +22,11 @@
     "@angular/platform-browser": "~14.2.0",
     "@angular/platform-browser-dynamic": "~14.2.0",
     "@angular/router": "~14.2.0",
-    "@ctrl/ngx-codemirror": "^4.0.0",
+    "@ctrl/ngx-codemirror": "^4.1.1",
+    "bootstrap": "^5.2.3",
+    "codemirror": "^5.65.9",
     "diff-match-patch": "^1.0.5",
+    "json-server": "^0.17.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

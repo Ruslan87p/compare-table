@@ -1,0 +1,40 @@
+td {
+  height: 40px;
+  border: none;
+}
+
+.fit-column {
+  width: 1px;
+  white-space: nowrap;
+}
+
+.line-number {
+  border-right: 1px solid whitesmoke;
+  color: #999 !important;
+  text-align: right;
+  background-color: #f7f7f7;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.insert-row,
+.insert-row > .line-number {
+  background-color: #dfd;
+}
+
+.delete-row,
+.delete-row > .line-number {
+  background-color: #fee8e9;
+}
+
+.empty-row {
+  background-color: #f7f7f7;
+}
+
+.insert-row > .highlight {
+  background-color: #acf2bd !important;
+}
+
+.delete-row > .highlight {
+  background-color: #fdb8c0 !important;
+}

@@ -1,18 +1,15 @@
 {
-  "name": "compare-editor",
+  "name": "compare-tmp-editor",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/compare-editor/src",
+  "sourceRoot": "libs/compare-tmp-editor/src",
   "prefix": "code-compare",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "assets": [{
-          "glob": "**/*", "input": "node_modules/ngx-monaco-editor/assets/monaco", "output": "./assets/monaco/"
-        }],
-        "jestConfig": "libs/compare-editor/jest.config.ts",
+        "jestConfig": "libs/compare-tmp-editor/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -20,8 +17,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/compare-editor/**/*.ts",
-          "libs/compare-editor/**/*.html"
+          "libs/compare-tmp-editor/**/*.ts",
+          "libs/compare-tmp-editor/**/*.html"
         ]
       }
     }

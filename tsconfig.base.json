@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@code-compare/compare-editor": ["libs/compare-editor/src/index.ts"]
+      "@code-compare/compare-tmp-editor": [
+        "libs/compare-tmp-editor/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,418 @@
+{
+  "profile": {
+    "fromHash": "b372259d2614012809efed6bfdec56c0d3892c78",
+    "toHash": "6f66ce352523ff6c4ebc96897c5f998e780144aa",
+    "contextLines": 10,
+    "whitespace": "SHOW",
+    "diffs": [
+        {
+            "source": {
+                "components": [
+                    "src",
+                    "main",
+                    "java",
+                    "com",
+                    "poalim",
+                    "creditoffer",
+                    "impl",
+                    "service",
+                    "CalcApprovalMethodUnderwritingService.java"
+                ],
+                "parent": "src/main/java/com/poalim/creditoffer/impl/service",
+                "name": "CalcApprovalMethodUnderwritingService.java",
+                "extension": "java",
+                "toString": "src/main/java/com/poalim/creditoffer/impl/service/CalcApprovalMethodUnderwritingService.java"
+            },
+            "destination": {
+                "components": [
+                    "src",
+                    "main",
+                    "java",
+                    "com",
+                    "poalim",
+                    "creditoffer",
+                    "impl",
+                    "service",
+                    "CalcApprovalMethodUnderwritingService.java"
+                ],
+                "parent": "src/main/java/com/poalim/creditoffer/impl/service",
+                "name": "CalcApprovalMethodUnderwritingService.java",
+                "extension": "java",
+                "toString": "src/main/java/com/poalim/creditoffer/impl/service/CalcApprovalMethodUnderwritingService.java"
+            },
+            "hunks": [
+                {
+                    "context": "public class CalcApprovalMethodUnderwritingService {",
+                    "sourceLine": 76,
+                    "sourceSpan": 19,
+                    "destinationLine": 76,
+                    "destinationSpan": 21,
+                    "segments": [
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 76,
+                                    "destination": 76,
+                                    "line": "    private boolean isMultiChannel(CreditOffer creditOffer) {",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 77,
+                                    "destination": 77,
+                                    "line": "        List<Integer> families = List.of(",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 78,
+                                    "destination": 78,
+                                    "line": "            LoanFamilyCode.PRIVATE_MULTI_CHANNEL.getValue(),",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 79,
+                                    "destination": 79,
+                                    "line": "            LoanFamilyCode.PRIVATE_EMPLOYEE_MULTI_CHANNEL.getValue(),",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 80,
+                                    "destination": 80,
+                                    "line": "            LoanFamilyCode.BUSINESS_MULTI_CHANNEL.getValue(),",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 81,
+                                    "destination": 81,
+                                    "line": "            LoanFamilyCode.BUSINESS_MULTI_CHANNEL_SIGNATURES_IN_CHANNEL.getValue());",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 82,
+                                    "destination": 82,
+                                    "line": "        return families.contains(creditOffer.getTheOfferedProduct().getLoanFamilyCode());",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 83,
+                                    "destination": 83,
+                                    "line": "    }",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 84,
+                                    "destination": 84,
+                                    "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 85,
+                                    "destination": 85,
+                                    "line": "    private void setUIRoutingIndications(CreditOffer creditOffer) {",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "REMOVED",
+                            "lines": [
+                                {
+                                    "source": 86,
+                                    "destination": 86,
+                                    "line": "        boolean isAutomaticRoute = CreditRouteCode.AUTOMATIC.getValue().equals(creditOffer.getApprovalSequence().getCreditRouteCode()) ||",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 87,
+                                    "destination": 86,
+                                    "line": "            AUTOMATIC_AFTER_QUESTIONEER.getValue().equals(creditOffer.getApprovalSequence().getCreditRouteCode());",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "ADDED",
+                            "lines": [
+                                {
+                                    "source": 88,
+                                    "destination": 86,
+                                    "line": "        boolean isAutomaticRoute =",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 88,
+                                    "destination": 87,
+                                    "line": "            (CreditRouteCode.AUTOMATIC.getValue().equals(creditOffer.getApprovalSequence().getCreditRouteCode()) &&",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 88,
+                                    "destination": 88,
+                                    "line": "                Boolean.FALSE.equals(creditOffer.getIndications().getInterestRangeExist())) ||",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 88,
+                                    "destination": 89,
+                                    "line": "                AUTOMATIC_AFTER_QUESTIONEER.getValue().equals(creditOffer.getApprovalSequence().getCreditRouteCode());",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 88,
+                                    "destination": 90,
+                                    "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 89,
+                                    "destination": 91,
+                                    "line": "        boolean isCarLoans = CAR_LOANS.getValue().equals(creditOffer.getTheOfferedProduct().getExceedEligibility());",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 90,
+                                    "destination": 92,
+                                    "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 91,
+                                    "destination": 93,
+                                    "line": "        creditOffer.getApprovalSequence().setBranchRouting(!(isAutomaticRoute || isCarLoans));",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 92,
+                                    "destination": 94,
+                                    "line": "        creditOffer.getApprovalSequence().setCallCenterRouting(!isAutomaticRoute);",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 93,
+                                    "destination": 95,
+                                    "line": "    }",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 94,
+                                    "destination": 96,
+                                    "line": "}",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        }
+                    ],
+                    "truncated": false
+                }
+            ],
+            "truncated": false
+        },
+        {
+            "source": {
+                "components": [
+                    "src",
+                    "main",
+                    "resources",
+                    "impl",
+                    "build-impl.gradle"
+                ],
+                "parent": "src/main/resources/impl",
+                "name": "build-impl.gradle",
+                "extension": "gradle",
+                "toString": "src/main/resources/impl/build-impl.gradle"
+            },
+            "destination": {
+                "components": [
+                    "src",
+                    "main",
+                    "resources",
+                    "impl",
+                    "build-impl.gradle"
+                ],
+                "parent": "src/main/resources/impl",
+                "name": "build-impl.gradle",
+                "extension": "gradle",
+                "toString": "src/main/resources/impl/build-impl.gradle"
+            },
+            "hunks": [
+                {
+                    "sourceLine": 4,
+                    "sourceSpan": 21,
+                    "destinationLine": 4,
+                    "destinationSpan": 21,
+                    "segments": [
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 4,
+                                    "destination": 4,
+                                    "line": "    Major: Update each time a new non backward compatible functionality is added.",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 5,
+                                    "destination": 5,
+                                    "line": "    Minor: Update each time a new backward compatible functionality is added. When updating Minor, set Patch to 0.",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 6,
+                                    "destination": 6,
+                                    "line": "    Patch: Update each time a small change is made or a bug is fixed.",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 7,
+                                    "destination": 7,
+                                    "line": "*/",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 8,
+                                    "destination": 8,
+                                    "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 9,
+                                    "destination": 9,
+                                    "line": "minorVersion = \"22\"",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 10,
+                                    "destination": 10,
+                                    "line": "patchVersion = \"0\"",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 11,
+                                    "destination": 11,
+                                    "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 12,
+                                    "destination": 12,
+                                    "line": "def mockitoVersion = \"3.7.7\"",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 13,
+                                    "destination": 13,
+                                    "line": "def jacksonVersion = \"2.13.2\"",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "REMOVED",
+                            "lines": [
+                                {
+                                    "source": 14,
+                                    "destination": 14,
+                                    "line": "def jacksonDatabindVersion = \"2.13.2.1\"",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "ADDED",
+                            "lines": [
+                                {
+                                    "source": 15,
+                                    "destination": 14,
+                                    "line": "def jacksonDatabindVersion = \"2.14.0\"",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 15,
+                                    "destination": 15,
+                                    "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 16,
+                                    "destination": 16,
+                                    "line": "// Add any custom dependencies as needed",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 17,
+                                    "destination": 17,
+                                    "line": "dependencies {",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 18,
+                                    "destination": 18,
+                                    "line": "    implementation \"com.googlecode.json-simple:json-simple:1.1\"",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 19,
+                                    "destination": 19,
+                                    "line": "    implementation('io.github.resilience4j:resilience4j-spring-boot2:1.7.1')",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 20,
+                                    "destination": 20,
+                                    "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 21,
+                                    "destination": 21,
+                                    "line": "    implementation \"com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${jacksonVersion}\"",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 22,
+                                    "destination": 22,
+                                    "line": "    implementation \"com.fasterxml.jackson.core:jackson-core:${jacksonVersion}\"",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 23,
+                                    "destination": 23,
+                                    "line": "    implementation \"com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}\"",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 24,
+                                    "destination": 24,
+                                    "line": "    implementation \"com.fasterxml.jackson.core:jackson-databind:${jacksonDatabindVersion}\"",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        }
+                    ],
+                    "truncated": false
+                }
+            ],
+            "truncated": false
+        }
+    ],
+    "truncated": false
+  }
+}

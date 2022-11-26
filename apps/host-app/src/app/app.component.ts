@@ -7,19 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  codeMirrorOptions: any = {
-    mode: 'application/xml',
-    htmlMode: true,
-    indentWithTabs: true,
-    smartIndent: true,
-    lineNumbers: true,
-    lineWrapping: false,
-    extraKeys: { 'Ctrl-Space': 'autocomplete' },
-    gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-    autoCloseBrackets: true,
-    matchBrackets: true,
-    lint: true
-  };
+  // codeMirrorOptions: any = {
+  //   mode: 'application/xml',
+  //   htmlMode: true,
+  //   indentWithTabs: true,
+  //   smartIndent: true,
+  //   lineNumbers: true,
+  //   lineWrapping: false,
+  //   extraKeys: { 'Ctrl-Space': 'autocomplete' },
+  //   gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+  //   autoCloseBrackets: true,
+  //   matchBrackets: true,
+  //   lint: true
+  // };
 
   query!: string;
 
@@ -28,12 +28,12 @@ export class AppComponent {
     console.log('HEY')
     this.query = `<TEST>sajdlhfjl</TEST>
     <div><h1>HELLO</h1></div>`;
-    console.log('this.......');
+    // console.log('this.......');
   }
 
   setEditorContent(event: any) {
     // console.log(event, typeof event);
-    console.log(this.query);
+    // console.log(this.query);
   }
 
 }

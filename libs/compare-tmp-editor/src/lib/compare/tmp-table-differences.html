@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="d-flex" [ngStyle]="compareRowsStyle">
+        <table class="table table-striped">
+          <tbody #body>
+            <tr *ngFor="let row of filteredTableRows">
+              <td
+                scope="row"
+                class="fit-column line-number"
+                [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
+              >
+                {{ row.leftContent?.lineNumber !== -1 ? row.leftContent?.lineNumber : ' ' }}
+              </td>
+              <td
+                class="fit-column prefix-col"
+                [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
+              >
+                <span>{{ row.leftContent?.prefix || ' ' }}</span>
+              </td>
+              <td
+                class="content-col"
+                [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
+                *ngIf="!row.hasDiffs"
+              >
+                <span [innerHTML]="row.leftContent?.lineContent | formatLine"></span>
+              </td>
+              <td
+                class="content-col"
+                [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
+                *ngIf="row.hasDiffs"
+              >
+                <span
+                  [innerHTML]="diff.content | formatLine"
+                  [ngClass]="{ highlight: diff.isDiff }"
+                  *ngFor="let diff of row.leftContent?.lineDiffs"
+                ></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <!-- Left side-by-side -->
+        <table class="table table-striped">
+          <tbody>
+            <tr *ngFor="let row of filteredTableRows">
+              <td
+                scope="row"
+                class="fit-column line-number"
+                [ngClass]="{ 'insert-row': row.rightContent?.prefix === '+', 'empty-row': !row.rightContent?.lineContent }"
+              >
+                {{ row.rightContent?.lineNumber !== -1 ? row.rightContent?.lineNumber : ' ' }}
+              </td>
+              <td
+                class="fit-column prefix-col"
+                [ngClass]="{ 'insert-row': row.rightContent?.prefix === '+', 'empty-row': !row.rightContent?.lineContent }"
+              >
+                <span>{{ row.rightContent?.prefix || ' ' }}</span>
+              </td>
+              <td
+                class="content-col"
+                [ngClass]="{ 'insert-row': row.rightContent?.prefix === '+', 'empty-row': !row.rightContent?.lineContent }"
+                *ngIf="!row.hasDiffs"
+              >
+                <span [innerHTML]="row.rightContent?.lineContent | formatLine"></span>
+              </td>
+              <td
+                class="content-col"
+                [ngClass]="{ 'insert-row': row.rightContent?.prefix === '+', 'empty-row': !row.rightContent?.lineContent }"
+                *ngIf="row.hasDiffs"
+              >
+                <span
+                  [innerHTML]="diff.content | formatLine"
+                  [ngClass]="{ highlight: diff.isDiff }"
+                  *ngFor="let diff of row.rightContent?.lineDiffs"
+                ></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
