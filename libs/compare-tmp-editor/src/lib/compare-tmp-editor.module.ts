@@ -5,9 +5,10 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { FormatLinePipe } from './compare/formater-line.pipe';
 import { NgxTextDiffComponent } from './compare/tmp-table-differences';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(appRoutes)],
+  imports: [CommonModule, HttpClientModule, RouterModule.forChild(appRoutes)],
   declarations: [TextDiffComponent, NgxTextDiffComponent, FormatLinePipe],
 })
 export class CompareTmpEditorModule {}

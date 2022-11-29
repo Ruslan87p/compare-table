@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { DiffResults } from '../compare/tmp-table-differences-models';
+import { TextDataService } from '../text-data.service';
 
 
 export interface DiffContent {
@@ -22,10 +23,18 @@ export class TextDiffComponent implements OnInit {
 
   contentObservable: Subject<DiffContent> = new Subject<DiffContent>();
   contentObservable$: Observable<DiffContent> = this.contentObservable.asObservable();
+  numberLine = 11;
+  constructor(private textSvs: TextDataService) {}
 
-  // constructor() {}
+  getData() {
+    return this.textSvs.getCodeData().subscribe( (item) => {
+      console.log(item, 'item')
+    })
+  }
 
   ngOnInit() {
+
+    this.getData()
     this.content.leftContent =
       '<card xmlns="http://businesscard.org">\n' +
       '   <name>John Doe</name>\n' +
@@ -58,6 +67,7 @@ export class TextDiffComponent implements OnInit {
 
   onCompareResults(diffResults: DiffResults) {
     console.log('diffResults', diffResults);
+
   }
 
 }

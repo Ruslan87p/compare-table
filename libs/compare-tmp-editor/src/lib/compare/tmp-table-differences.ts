@@ -38,6 +38,8 @@ export class NgxTextDiffComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+
+    console.log(this.beforeTableLines, this.afterTableLines, 'AFTER BEFORE')
     this.diff.startLineNumber.next(this.numberLine)
     if (this.diffContent) {
       this.subscriptions.push(
@@ -48,19 +50,8 @@ export class NgxTextDiffComponent implements OnInit, OnDestroy {
         })
       );
     }
-    // this.getLinesBefore();
   }
 
-//   getLinesBefore() {
-//     for (let i = 0; i < this.beforeTableLines; i++) {
-//       const element = i;
-//       // this.linesBeforeArr.push(element)
-//     }
-//     console.log(this.linesBeforeArr, 'element')
-
-// // fill with 0 from position 2 until position 4
-// // console.log(this.linesBeforeArr.fill(0, 2, 4));
-//   }
 
 
   ngOnDestroy(): void {
