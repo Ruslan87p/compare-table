@@ -21,9 +21,6 @@ export class NgxTextDiffComponent implements OnInit, OnDestroy {
   @Input() right = '';
   @Input() diffContent!: Observable<DiffContent>;
   @Input() numberLine!: number;
-  @Input() compareRowsStyle: any;
-  @Input() beforeTableLines!: number;
-  @Input() afterTableLines!: number;
   @Output() compareResults = new EventEmitter<DiffResults>();
   subscriptions: Subscription[] = [];
   tableRows: DiffTableRowResult[] = [];
@@ -38,8 +35,6 @@ export class NgxTextDiffComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-
-    console.log(this.beforeTableLines, this.afterTableLines, 'AFTER BEFORE')
     this.diff.startLineNumber.next(this.numberLine)
     if (this.diffContent) {
       this.subscriptions.push(

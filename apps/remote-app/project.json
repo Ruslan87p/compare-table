@@ -20,8 +20,7 @@
           "apps/remote-app/src/assets"
         ],
         "styles": [
-          "apps/remote-app/src/styles.scss",
-          "./node_modules/bootstrap/dist/css/bootstrap.css"
+          "apps/remote-app/src/styles.scss"
         ],
         "scripts": [],
         "customWebpackConfig": {

@@ -1,21 +1,24 @@
 <div class="container">
-    <div class="d-flex" [ngStyle]="compareRowsStyle">
-        <table class="table table-striped">
+    <!-- <div class="d-flex" [ngStyle]="compareRowsStyle"> -->
+        <table class="table">
           <tbody #body>
             <tr *ngFor="let row of filteredTableRows">
+
+              <!-- scope="row" -->
               <td
-                scope="row"
                 class="fit-column line-number"
                 [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
               >
                 {{ row.leftContent?.lineNumber !== -1 ? row.leftContent?.lineNumber : ' ' }}
               </td>
+
               <td
                 class="fit-column prefix-col"
                 [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
               >
                 <span>{{ row.leftContent?.prefix || ' ' }}</span>
               </td>
+
               <td
                 class="content-col"
                 [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
@@ -23,6 +26,7 @@
               >
                 <span [innerHTML]="row.leftContent?.lineContent | formatLine"></span>
               </td>
+
               <td
                 class="content-col"
                 [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
@@ -34,15 +38,15 @@
                   *ngFor="let diff of row.leftContent?.lineDiffs"
                 ></span>
               </td>
+
             </tr>
           </tbody>
         </table>
       <!-- Left side-by-side -->
-        <table class="table table-striped">
+        <table class="table">
           <tbody>
             <tr *ngFor="let row of filteredTableRows">
               <td
-                scope="row"
                 class="fit-column line-number"
                 [ngClass]="{ 'insert-row': row.rightContent?.prefix === '+', 'empty-row': !row.rightContent?.lineContent }"
               >
@@ -72,15 +76,8 @@
                   *ngFor="let diff of row.rightContent?.lineDiffs"
                 ></span>
               </td>
-45764856876
-              <!-- <td
-              scope="row"
-              class="fit-column line-number">
-87
-            </td> -->
-
             </tr>
           </tbody>
         </table>
-    </div>
+    <!-- </div> -->
 </div>
