@@ -62,6 +62,7 @@ export class NgxTextDiffService {
                 lineNumber: lineLeft,
                 lineContent: line,
                 lineDiffs: [],
+                lineNumberBefore: '',
                 prefix: ''
               };
               rightContent = {
@@ -123,10 +124,9 @@ export class NgxTextDiffService {
                 });
               }
               lineLeft = lineLeft + 1;
-              // console.log(lineLeft, 'left')
             });
           break;
-        case DIFF_INSERT: // 1
+        case DIFF_INSERT: // 1'
           diffValue
             .split('\n')
             .filter((value, index, array) => {

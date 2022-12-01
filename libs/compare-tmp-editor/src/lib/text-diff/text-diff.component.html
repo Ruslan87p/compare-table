@@ -1,26 +1,33 @@
 <div class="container-fluid">
-
-  <!-- <div class="main-content"> -->
     <div class="container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">Home</li>
-        </ol>
-      </nav>
-      <div>
-        <code-compare-table-differences
+
+      <div class="list-items">
+          <ul class="list-group">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+          </ul>
+       </div>
+
+
+      <div class="table">
+          <section>
+            <h2>here should be printed path </h2>
+          </section>
+          <h5 *ngIf="isLoading">Loading...</h5>
+          <code-compare-table-differences
+          *ngIf="!isLoading"
           [left]="content.leftContent"
           [numberLine]="numberLine"
-          [beforeTableLines]="10"
-          [afterTableLines]="10"
           [right]="content.rightContent"
           [diffContent]="contentObservable$"
-          [compareRowsStyle]="{'max-height': '800px', 'overflow': 'auto'}"
           (compareResults)="onCompareResults($event)"
         >
-        </code-compare-table-differences>
+          </code-compare-table-differences>
       </div>
-    </div>
-  <!-- </div> -->
 
+
+    </div>
 </div>

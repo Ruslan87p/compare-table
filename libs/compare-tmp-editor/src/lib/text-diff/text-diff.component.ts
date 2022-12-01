@@ -20,6 +20,7 @@ export class TextDiffComponent implements OnInit {
     leftContent: '',
     rightContent: ''
   };
+  isLoading!: boolean;
 
   contentObservable: Subject<DiffContent> = new Subject<DiffContent>();
   contentObservable$: Observable<DiffContent> = this.contentObservable.asObservable();
@@ -29,11 +30,14 @@ export class TextDiffComponent implements OnInit {
   getData() {
     return this.textSvs.getCodeData().subscribe( (item) => {
       console.log(item, 'item')
+      this.isLoading = true
+      if (item) {
+        this.submitComparison();
+      }
     })
   }
 
   ngOnInit() {
-
     this.getData()
     this.content.leftContent =
       '<card xmlns="http://businesscard.org">\n' +
@@ -55,13 +59,10 @@ export class TextDiffComponent implements OnInit {
       '   <logo url="widget.gif"/>\n' +
       ' </card>\n' +
       ' <dhrtkghdkkhgkdjgh>'
-
-      setTimeout( () => {
-        this.submitComparison();
-      },100)
   }
 
   submitComparison() {
+    this.isLoading = false
     this.contentObservable.next(this.content);
   }
 
