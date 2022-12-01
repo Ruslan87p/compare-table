@@ -20,7 +20,7 @@ export class TextDiffComponent implements OnInit {
     leftContent: '',
     rightContent: ''
   };
-  isLoading!: boolean;
+  isLoading = true;
 
   contentObservable: Subject<DiffContent> = new Subject<DiffContent>();
   contentObservable$: Observable<DiffContent> = this.contentObservable.asObservable();
@@ -30,7 +30,6 @@ export class TextDiffComponent implements OnInit {
   getData() {
     return this.textSvs.getCodeData().subscribe( (item) => {
       console.log(item, 'item')
-      this.isLoading = true
       if (item) {
         this.submitComparison();
       }
@@ -62,7 +61,7 @@ export class TextDiffComponent implements OnInit {
   }
 
   submitComparison() {
-    this.isLoading = false
+    this.isLoading = false;
     this.contentObservable.next(this.content);
   }
 
