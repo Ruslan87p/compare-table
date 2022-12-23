@@ -29,7 +29,6 @@ export class NgxTextDiffService {
       const diffs: Diff[] = this.diffParser.diff_main(lineText1, lineText2);
       this.diffParser.diff_charsToLines_(diffs, linesArray);
       const rows: DiffTableRowResult[] = this.formatOutput(diffs);
-      // console.log(rows, 'rows')
       return rows;
   }
 
@@ -216,7 +215,6 @@ export class NgxTextDiffService {
     } else if (shared !== '') {
       diffParts.push({ content: shared, isDiff: false });
     }
-
     return diffParts;
   }
 }

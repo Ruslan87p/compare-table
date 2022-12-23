@@ -11,13 +11,6 @@ export interface DiffPart {
   isDiff: boolean;
 }
 
-// export interface DiffLineResult {
-//   lineNumber: number;
-//   prefix: string;
-//   lineContent: string;
-//   lineDiffs: DiffPart[];
-// }
-
 export interface DiffTableRowResult {
   leftContent: any;
   rightContent: any;

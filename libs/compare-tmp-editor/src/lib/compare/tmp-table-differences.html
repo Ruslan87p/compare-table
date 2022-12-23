@@ -3,8 +3,6 @@
         <table class="table">
           <tbody #body>
             <tr *ngFor="let row of filteredTableRows">
-
-              <!-- scope="row" -->
               <td
                 class="fit-column line-number"
                 [ngClass]="{ 'delete-row': row.leftContent?.prefix === '-', 'empty-row': !row.leftContent?.lineContent }"
