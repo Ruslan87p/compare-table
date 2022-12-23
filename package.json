@@ -9,7 +9,7 @@
     "remote-app": "nx serve remote-app --open --skip-nx-cache",
     "server": "json-server --watch db.json",
     "start": "nx serve",
-    "build": "nx build",
+    "build": "nx build host-app",
     "test": "nx test"
   },
   "private": true,
