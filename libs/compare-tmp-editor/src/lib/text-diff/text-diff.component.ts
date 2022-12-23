@@ -25,7 +25,9 @@ export class TextDiffComponent implements OnInit {
   contentObservable: Subject<DiffContent> = new Subject<DiffContent>();
   contentObservable$: Observable<DiffContent> = this.contentObservable.asObservable();
   numberLine = 11;
-  constructor(private textSvs: TextDataService) {}
+  constructor(
+    private textSvs: TextDataService
+  ) {}
 
   getData() {
     return this.textSvs.getCodeData().subscribe( (item) => {
@@ -67,7 +69,6 @@ export class TextDiffComponent implements OnInit {
 
   onCompareResults(diffResults: DiffResults) {
     console.log('diffResults', diffResults);
-
   }
 
 }
