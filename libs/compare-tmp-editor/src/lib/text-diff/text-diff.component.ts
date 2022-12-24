@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject, Observable, Subscription } from 'rxjs';
 import { DiffResults } from '../compare/tmp-table-differences-models';
 import { TextDataService } from '../text-data.service';
 
@@ -14,7 +14,7 @@ export interface DiffContent {
   templateUrl: './text-diff.component.html',
   styleUrls: ['./text-diff.component.scss'],
 })
-export class TextDiffComponent implements OnInit {
+export class TextDiffComponent implements OnInit, OnDestroy {
 
   content: DiffContent = {
     leftContent: '',
@@ -24,42 +24,47 @@ export class TextDiffComponent implements OnInit {
 
   contentObservable: Subject<DiffContent> = new Subject<DiffContent>();
   contentObservable$: Observable<DiffContent> = this.contentObservable.asObservable();
-  numberLine = 11;
+  subscription: Subscription = new Subscription;
+  numberLine = 17;
   constructor(
     private textSvs: TextDataService
   ) {}
 
   getData() {
     return this.textSvs.getCodeData().subscribe( (item) => {
-      console.log(item, 'item')
       if (item) {
+        console.log(item, 'item')
+        // this.content.leftContent = item.diffs.codeAfter
+        // this.content.rightContent = item.diffs.codeAfter
         this.submitComparison();
       }
     })
   }
 
+
   ngOnInit() {
-    this.getData()
+
+    this.subscription.add(this.getData())
     this.content.leftContent =
-      '<card xmlns="http://businesscard.org">\n' +
-      '   <name>John Doe</name>\n' +
-      '   <title>CEO, Widget Company COO </title>\n' +
-      '   <email>john.Moe@widget.com</email>\n' +
-      '   <cellphone>(202) 456-1414</cellphone>\n' +
-      '   <phone>(202) 456-1414</phone>\n' +
-      '   <logo url="widget.gif"/>\n' +
-      ' </card>\n' +
-      ' <dhfkghdkgdkhgkdjgh>';
+      `<card xmlns="http://businesscard.org">
+         <name>John Doe</name>
+         <title>CEO, Widget Company COO </title>
+         <email>john.Moe@widget.com</email>
+         <cellphone>(202) 456-1414</cellphone>
+         <phone>(202) 456-1414</phone>
+         <logo url="widget.gif"/>
+       </card>
+       <dhfkghdkgdkhgkdjgh>`
     this.content.rightContent =
-      '<card xmlns="http://businesscard.org">\n' +
-      '   <name>John Moe</name>\n' +
-      '   <title>CEO, Widget Inc.</title>\n' +
-      '   <email>john.Moe@widget.com</email>\n' +
-      '   <phone>(202) 456-1414</phone>\n' +
-      '   <address>Test</address>\n' +
-      '   <logo url="widget.gif"/>\n' +
-      ' </card>\n' +
-      ' <dhrtkghdkkhgkdjgh>'
+      `<card xmlns="http://businesscard.org">
+         <name>John Moe</name>
+         <title>CEO, Widget Inc.</title>
+         <email>john.Moe@widget.com</email>
+         <phone>(202) 456-1414</phone>
+         <address>Test</address>
+         <logo url="widget.gif"/>
+       </card>
+       <dhrtkghdkkhgkdjgh>`
   }
 
   submitComparison() {
@@ -71,4 +76,7 @@ export class TextDiffComponent implements OnInit {
     console.log('diffResults', diffResults);
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

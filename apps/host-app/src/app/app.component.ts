@@ -25,10 +25,7 @@ export class AppComponent {
 
 
   public ngOnInit() {
-    console.log('HEY')
-    this.query = `<TEST>sajdlhfjl</TEST>
-    <div><h1>HELLO</h1></div>`;
-    // console.log('this.......');
+    console.log('HOST APP INIT')
   }
 
   setEditorContent(event: any) {

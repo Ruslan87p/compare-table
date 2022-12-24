@@ -8,7 +8,6 @@ export class FormatLinePipe implements PipeTransform {
     if (!line) {
       return ' ';
     }
-    console.log(line, 'LINE')
     return line
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')

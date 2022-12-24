@@ -67,10 +67,12 @@
       "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "remote-app:build:production"
+          "browserTarget": "remote-app:build:production",
+          "proxyConfig": "src/proxy.conf.json"
         },
         "development": {
-          "browserTarget": "remote-app:build:development"
+          "browserTarget": "remote-app:build:development",
+          "proxyConfig": "src/proxy.conf.json"
         }
       },
       "defaultConfiguration": "development",

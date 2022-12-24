@@ -10,19 +10,7 @@ import { appRoutes } from './app.routes';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    // RouterModule.forRoot(
-    //   [
-    //     {
-    //       path: '',
-    //       loadChildren: () =>
-    //         import('./remote-entry/entry.module').then(
-    //           (m) => m.RemoteEntryModule
-    //         ),
-    //     },
-    //   ],
-    //   { initialNavigation: 'enabledBlocking' }
-    // ),
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' })
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -29,7 +29,6 @@ export class NgxTextDiffComponent implements OnInit, OnDestroy {
   diffsCount = 0;
   linesBeforeArr = [];
 
-
   constructor(
     private diff: NgxTextDiffService
   ) {}
@@ -47,14 +46,11 @@ export class NgxTextDiffComponent implements OnInit, OnDestroy {
     }
   }
 
-
-
   ngOnDestroy(): void {
     if (this.subscriptions) {
       this.subscriptions.forEach(subscription => subscription.unsubscribe());
     }
   }
-
 
    renderDiffs() {
       this.diffsCount = 0;

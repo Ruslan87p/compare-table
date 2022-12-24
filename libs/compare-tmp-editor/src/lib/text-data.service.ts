@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, Subject } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,13 +8,13 @@ import { map, Observable, Subject } from 'rxjs';
 })
 export class TextDataService {
 
-  api = 'http://localhost:3000';
+  api = 'http://localhost:3001';
 
   constructor(private http: HttpClient) { }
 
 
   getCodeData(): Observable<any> {
-    return this.http.get(`${this.api}/profile`).pipe(map( item => item))
+    return this.http.get(`${this.api}`).pipe(map( item => item))
   }
 
 }
