@@ -19,9 +19,7 @@
           "apps/remote-app/src/favicon.ico",
           "apps/remote-app/src/assets"
         ],
-        "styles": [
-          "apps/remote-app/src/styles.scss"
-        ],
+        "styles": ["apps/remote-app/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/remote-app/webpack.config.js"
@@ -67,12 +65,10 @@
       "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "remote-app:build:production",
-          "proxyConfig": "src/proxy.conf.json"
+          "browserTarget": "remote-app:build:production"
         },
         "development": {
-          "browserTarget": "remote-app:build:development",
-          "proxyConfig": "src/proxy.conf.json"
+          "browserTarget": "remote-app:build:development"
         }
       },
       "defaultConfiguration": "development",

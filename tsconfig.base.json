@@ -15,9 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@code-compare/auth": ["libs/auth/src/index.ts"],
       "@code-compare/compare-tmp-editor": [
         "libs/compare-tmp-editor/src/index.ts"
-      ]
+      ],
+      "@code-compare/login": ["libs/login/src/index.ts"],
+      "@code-compare/register": ["libs/register/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

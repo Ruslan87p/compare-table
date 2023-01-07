@@ -5,5 +5,11 @@
       "codeBefore": "<card xmlns='http://businesscard.org'> <name>John Moe</name> <title>CEO, Widget Inc.</title> <email>john.Moe@widget.com</email> <phone>(202) 456-1414</phone> <address>Test</address> <logo url='widget.gif'/> </card> <dhrtkghdkkhgkdjgh>",
       "codeAfter": "<card xmlns='http://businesscard.org'> <name>John Doe</name> <title>CEO, Widget Company COO </title> <email>john.Moe@widget.com</email> <cellphone>(202) 456-1414</cellphone> <phone>(202) 456-1414</phone> <logo url='widget.gif'/> </card> <dhfkghdkgdkhgkdjgh>"
     }
-  }
+  },
+  "users": [
+    {
+      "username": "Rus",
+      "password": "rus12"
+    }
+  ]
 }
