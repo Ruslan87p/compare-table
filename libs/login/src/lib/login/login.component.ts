@@ -18,21 +18,25 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService,
     private router:Router
   ) { }
+
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username:['',Validators.required],
       password:['',Validators.required],
     })
   }
-  login(){
+
+  login() {
     const formValue = this.loginForm.value
     this.loginService.login(formValue.username,formValue.password).subscribe({next: (res: { token: string; }) => {
       console.log(res, 'RESSS')
-      localStorage.setItem('token',res.token)
+      // TODO replace it by income token from response ...
+      // localStorage.setItem('token',res.token)
+
       this.router.navigate(['/'])
     },
     error: (err)=>{
-      this.message='Wrong username or password!!'
+      this.message = 'Wrong username or password!!'
     }})
   }
 
